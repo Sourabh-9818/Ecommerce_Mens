@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        .product{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        #total{display: flex;
+        justify-content: space-around;
+    }
+    #total > h5{
+        margin-left: 800px;
+    }
+    </style>
+</head>
+<body>
+    <h2>Cart</h2>
+    <div id="cart"></div>
+</body>
+</html>
+<script>
+    var products =JSON.parse(localStorage.getItem("cart"))||[];
+    var cart=document.getElementById("cart");
+    if(products.length==0){
+        cart.innerText="Nothing To Display";
+    }else{
+        displayproduct();
+        calculate();
+    }
+    function displayproduct(){
+        products.map(function(elem){
+        var div=document.createElement("div");
+        div.setAttribute("class", "product");
+        var image=document.createElement("img");
+        image.setAttribute("src",elem.image_url);
+        image.setAttribute("alt", elem.name);
+        var name=document.createElement("h5");
+        name.innerText=elem.name;
+        var price=  document.createElement("p");
+        price.innerText=elem.price;
+        div.append(image,name,price);
+        cart.append(div);
+        });
+    }
+    function calculate(){
+        var total = products.reduce(function(acc,curr){
+           return acc+parseInt(curr.price);
+        },0);
+        var cartvalue= document.createElement("h5");
+        cartvalue.innerText="₹"+ total;
+        var p=document.createElement("p");
+        p.innerText="Total";
+        var div=document.createElement("div");
+        div.append(p,cartvalue);
+        div.setAttribute("id", "total");
+        document.querySelector("body").append(div);
+    }
+</script>

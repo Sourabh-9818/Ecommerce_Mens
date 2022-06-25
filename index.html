@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mens Product</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+        }
+        h5 + div{
+            display: flex;
+            justify-content: space-around;
+        }
+        h5 + div > p:last-child{
+            text-decoration: line-through;
+        }
+        #container > div{
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+             rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+             border-radius: 20px;
+             text-align: center;
+        }
+        .cartbtn{
+            background-color: teal;
+            color: white;
+            border: 0;
+            margin: 15px auto;
+            display: block;
+            padding: 5px 0;
+            border-radius: 5px;
+            width: 50%;
+        }
+        #cartpage{
+            background-color: beige;
+            border: 0;
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        #cartpage > a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <button id="cartpage">
+        <a href="cart.html" target="_blank">
+            Go To Cart
+        </a>
+    </button>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+    var mensData = [
+    {
+        id:1,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-EX4296/reebok_EX4296_1.jpg.plp",
+      name: "MEN'S REEBOK RUNNING ROADMAP SHOES",
+      price: "1170",
+      strikedoffprice: "2599",
+    },
+    {
+        id:2,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-EX3921/reebok_EX3921_1.jpg.plp",
+      name: "MEN'S REEBOK SWIM ARUBA FLIP SLIPPERS ",
+      price: 699,
+      strikedoffprice: 999,
+    },
+    {
+        id:3,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-EX4160/reebok_EX4160_1.jpg.plp",
+      name: " MEN'S REEBOK RUNNING AUSTIN SHOES",
+      price: 945,
+      strikedoffprice: 2099,
+    },
+    {
+        id:4,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-FV8798/MEN_SWIM_SLIPPERS_FV8798_1.jpg.plp",
+      name: "MEN'S REEBOK SWIM AVENGER FLIP LP SLIPPERS",
+      price: 399,
+      strikedoffprice: 799,
+    },
+    {
+        id:4,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-EW5173/reebok_EW5173_1.jpg.plp",
+      name: "MEN'S REEBOK RUNNING TEMPO SHOES ",
+      price: 1620,
+      strikedoffprice: 3599,
+    },
+    {
+        id:5,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-FV7329/reebok_FV7329_1.jpg.plp ",
+      name: " MEN'S REEBOK RUNNING ASTRO BOOSTER SHOES ",
+      price: 1440,
+      strikedoffprice: 3199,
+    },
+    {
+        id:6,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GD8567/MEN_TRAINING_PANTS_GD8567_1.jpg.plp ",
+      name: " MEN'S TRAINING WORKOUT READY ELITAGE PANTS ",
+      price: 1999,
+      strikedoffprice: 3199,
+    },
+    {
+        id:7,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GQ8758/reebok_GQ8758_1.jpg.plp ",
+      name: "MEN'S REEBOK TRAINING  POLO T-SHIRTS TEE  ",
+      price: 769,
+      strikedoffprice: 1099,
+    },
+    {
+        id:8,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-GP7180/reebok_GP7180_1.jpg.plp",
+      name: "MEN'S REEBOK TRAINING WORKOUT  TEE  ",
+      price: 1299,
+      strikedoffprice: 1440,
+    },
+    {
+        id:9,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-EX3924/reebok_EX3924_1.jpg.plp ",
+      name: "MEN'S REEBOK SUPER SOFT FLIP SLIPPERS",
+      price: 699,
+      strikedoffprice: 999,
+    },
+    {
+        id:10,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-FW0343/reebok_FW0343_1.jpg.plp ",
+      name: "MEN'S REEBOK RUNNING RUN SHOES  ",
+      price: 1620,
+      strikedoffprice: 3599,
+    },
+    {
+        id:11,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-EX4285/reebok_EX4285_1.jpg.plp ",
+      name: "MEN'S REEBOK RUNNING GENESIS RUNNER SHOES  ",
+      price: 1620,
+      strikedoffprice: 3599,
+    },
+    {
+        id:12,
+      image_url:
+        "https://content.shop4reebok.com/static/Product-FV9519/MEN_SWIM_SLIPPERS_FV9519_1.jpg.plp ",
+      name: "MEN'S REEBOK SWIM RUSSLE FLIP SLIPPERS  ",
+      price: 599,
+      strikedoffprice: 999,
+    },
+];
+displayproduct(mensData);
+function displayproduct(data){
+    data.map(function(elem){
+        var div=document.createElement("div");
+        var image=document.createElement("img");
+        image.setAttribute("src",elem.image_url);
+        image.setAttribute("alt", elem.name);
+        var name=document.createElement("h5");
+        name.innerText=elem.name;
+        var pricebox=document.createElement("div");
+        var price=document.createElement("p");
+        price.innerText=elem.price;
+        var strikedoffprice=document.createElement("p");
+        strikedoffprice=elem.strikedoffprice;
+        pricebox.append(price,strikedoffprice);
+        var cartbtn=document.createElement("button");
+        cartbtn.innerText="Add To Cart";
+        cartbtn.setAttribute("class", "cartbtn");
+        cartbtn.addEventListener("click", function(){
+            addToCart(elem.id);
+        });
+        div.append(image,name,pricebox,cartbtn);
+        document.getElementById("container").append(div);
+
+    });
+}
+function addToCart(id) {
+    console.log(id);
+    var productincart=JSON.parse(localStorage.getItem("cart"))||[];
+    var product=mensData.filter(function(elem){
+        return elem.id==id;
+    });
+    productincart.push(product[0]);
+    localStorage.setItem("cart",JSON.stringify(productincart));
+}
+</script>
